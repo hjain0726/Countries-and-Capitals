@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -10,11 +11,12 @@ import { ApiService } from '../shared/api.service';
 export class CreateComponent implements OnInit {
   @ViewChild('f') createform: NgForm;
   res: string;
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   create() {
     this.apiService.saveData(this.createform.value).subscribe((res) => {
       this.res = res['msg'];
+      this.router.navigate(['/listing']);
     });
   }
 
