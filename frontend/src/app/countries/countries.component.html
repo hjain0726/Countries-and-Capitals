@@ -1,0 +1,23 @@
+<h2>Countries Listing</h2>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Capital</th>
+    <th>Operations</th>
+  </tr>
+  <tr *ngFor="let country of countries">
+    <td>{{country.name}}</td>
+    <td>{{country.capital}}</td>
+    <td>
+      <a class="btn btn-primary " (click)="edit(country)">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>&nbsp;
+      <a class="btn btn-success " (click)="delete(country._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </a>&nbsp;
+    </td>
+  </tr>
+</table>
+<!--<div ng-if="users.length==0">
+       No record found !!
+      </div>-->
